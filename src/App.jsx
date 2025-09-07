@@ -101,7 +101,7 @@ function App() {
   const handleContactClick = () => {
     toast({
       title: "🚧 Cette fonctionnalité n'est pas encore implémentée",
-      description: "Mais ne vous inquiétez pas ! Vous pouvez la demander dans votre prochaine invite ! 🚀",
+      description: "Mais ne vous inquiétez pas ! Vous la retrouverez rapidement! 🚀",
     });
   };
 
