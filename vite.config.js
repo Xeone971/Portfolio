@@ -205,6 +205,7 @@ logger.error = (msg, options) => {
 }
 
 export default defineConfig({
+	base: '/portfolio/',
 	customLogger: logger,
 	plugins: [
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin()] : []),
