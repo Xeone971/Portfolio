@@ -574,9 +574,9 @@ function App() {
                         Email Sécurisé
                       </Button>
                       <Button
-                        onClick={handleContactClick}
                         variant="outline"
-                        className="border-green-400 text-green-400 hover:bg-green-400/10 py-4 transition-all duration-300"
+                        className="border-green-400 text-green-400 hover:bg-green-400/10 py-4 transition-all duration-300 flex items-center justify-center"
+                        onClick={() => window.open('https://github.com/Xeone971', '_blank', 'noopener,noreferrer')}
                       >
                         <Github className="w-5 h-5 mr-2" />
                         GitHub
