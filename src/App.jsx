@@ -1,3 +1,9 @@
+  // Email obfusqué
+  const emailParts = ["collas.lucca", "outlook.fr"];
+  const getEmail = () => `${emailParts[0]}@${emailParts[1]}`;
+  const handleSecureEmailClick = () => {
+    window.location.href = `mailto:${getEmail()}`;
+  };
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -567,8 +573,8 @@ function App() {
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <Button
-                        onClick={handleContactClick}
-                        className="bg-green-400 hover:bg-green-500 text-black font-bold py-4 neon-glow transition-all duration-300"
+                        className="bg-green-400 hover:bg-green-500 text-black font-bold py-4 neon-glow transition-all duration-300 flex items-center justify-center"
+                        onClick={handleSecureEmailClick}
                       >
                         <Mail className="w-5 h-5 mr-2" />
                         Email Sécurisé
