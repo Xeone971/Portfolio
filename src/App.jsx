@@ -10,11 +10,17 @@ function App() {
   const [currentSection, setCurrentSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [terminalText, setTerminalText] = useState('');
+  const [isWhoamiHovered, setIsWhoamiHovered] = useState(false);
   const [matrixChars, setMatrixChars] = useState([]);
 
   const fullText = "root@hacker:~$ whoami";
+  const hoverText = "Lucca Collas - Cybersecurity Expert";
 
   useEffect(() => {
+    if (isWhoamiHovered) {
+      setTerminalText(hoverText);
+      return;
+    }
     let index = 0;
     const timer = setInterval(() => {
       if (index < fullText.length) {
@@ -26,7 +32,7 @@ function App() {
     }, 100);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [isWhoamiHovered]);
 
   useEffect(() => {
     const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
@@ -238,7 +244,14 @@ function App() {
                       HACKER
                     </h1>
                     <div className="text-xl md:text-2xl text-green-300 font-mono mb-8">
-                      <span className="terminal-cursor">{terminalText}</span>
+                      <span
+                        className="terminal-cursor"
+                        onMouseEnter={() => setIsWhoamiHovered(true)}
+                        onMouseLeave={() => setIsWhoamiHovered(false)}
+                        style={{ cursor: 'pointer' }}
+                      >
+                        {terminalText}
+                      </span>
                     </div>
                   </motion.div>
 
