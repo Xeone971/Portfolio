@@ -390,33 +390,56 @@ function App() {
                     &gt; Compétences_
                   </motion.h2>
 
-                  <div className="grid md:grid-cols-2 gap-8">
-                    {skills.map((skill, index) => (
-                      <motion.div
-                        key={skill.name}
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        className="hologram p-6 rounded-lg"
-                      >
-                        <div className="flex justify-between items-center mb-3">
-                          <span className="text-green-400 font-mono font-semibold">
-                            {skill.name}
-                          </span>
-                          <span className="text-green-300 font-mono text-sm">
-                            {skill.level}%
-                          </span>
-                        </div>
-                        <div className="w-full bg-gray-800 rounded-full h-3 overflow-hidden">
+                  <div className="mb-6">
+                    <details open>
+                      <summary className="text-2xl font-bold text-green-400 font-mono mb-4 cursor-pointer select-none">Cyber sécurité</summary>
+                      <div className="grid md:grid-cols-2 gap-8 mt-2">
+                        {skills.map((skill, index) => (
                           <motion.div
-                            initial={{ width: 0 }}
-                            animate={{ width: `${skill.level}%` }}
-                            transition={{ duration: 1, delay: index * 0.1 + 0.5 }}
-                            className={`h-full bg-gradient-to-r ${skill.color} neon-glow`}
-                          />
+                            key={skill.name}
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            className="hologram p-6 rounded-lg"
+                          >
+                            <div className="flex justify-between items-center mb-3">
+                              <span className="text-green-400 font-mono font-semibold">
+                                {skill.name}
+                              </span>
+                              <span className="text-green-300 font-mono text-sm">
+                                {skill.level}%
+                              </span>
+                            </div>
+                            <div className="w-full bg-gray-800 rounded-full h-3 overflow-hidden">
+                              <motion.div
+                                initial={{ width: 0 }}
+                                animate={{ width: `${skill.level}%` }}
+                                transition={{ duration: 1, delay: index * 0.1 + 0.5 }}
+                                className={`h-full bg-gradient-to-r ${skill.color} neon-glow`}
+                              />
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </details>
+                    {/* Menu déroulant Développement Web */}
+                    <details open className="mt-6">
+                      <summary className="text-2xl font-bold text-blue-400 font-mono mb-4 cursor-pointer select-none">Développement Web</summary>
+                      <div className="grid md:grid-cols-2 gap-8 mt-2">
+                        <div className="hologram p-6 rounded-lg">
+                          <span className="text-blue-400 font-mono font-semibold">React & Next.js</span>
+                          <p className="text-blue-200 text-sm mt-2">Création d'applications web modernes, SPA et SSR, gestion d'état avancée.</p>
                         </div>
-                      </motion.div>
-                    ))}
+                        <div className="hologram p-6 rounded-lg">
+                          <span className="text-blue-400 font-mono font-semibold">Node.js & Express</span>
+                          <p className="text-blue-200 text-sm mt-2">Développement d'API RESTful, gestion de bases de données, authentification sécurisée.</p>
+                        </div>
+                        <div className="hologram p-6 rounded-lg">
+                          <span className="text-blue-400 font-mono font-semibold">UI/UX & Responsive Design</span>
+                          <p className="text-blue-200 text-sm mt-2">Conception d'interfaces intuitives, adaptatives et accessibles pour tous les supports.</p>
+                        </div>
+                      </div>
+                    </details>
                   </div>
 
                   <motion.div
@@ -451,6 +474,23 @@ function App() {
                       <p className="text-green-200 text-sm">
                         Création d'outils et scripts de sécurité personnalisés
                       </p>
+                    </div>
+                    
+                    <div className="neon-border p-6 rounded-lg bg-black/30 text-center"></div>
+                    <div className="neon-border p-6 rounded-lg bg-black/30 text-center"></div>
+                    <div className="neon-border p-6 rounded-lg bg-black/30 text-center"></div>
+                    {/* 3 rectangles avec contenu */}
+                    <div className="neon-border p-6 rounded-lg bg-black/30 text-center">
+                      <h3 className="text-xl font-bold text-green-400 mb-2 font-mono">TryHackMe</h3>
+                      <p className="text-green-200 text-sm">Plateforme d'apprentissage pratique en cybersécurité, idéale pour progresser sur des labs interactifs et des challenges variés.</p>
+                    </div>
+                    <div className="neon-border p-6 rounded-lg bg-black/30 text-center">
+                      <h3 className="text-xl font-bold text-green-400 mb-2 font-mono">HackTheBox</h3>
+                      <p className="text-green-200 text-sm">Environnement de pentest virtuel reconnu, permettant de s'entraîner sur des machines et scénarios réalistes.</p>
+                    </div>
+                    <div className="neon-border p-6 rounded-lg bg-black/30 text-center">
+                      <h3 className="text-xl font-bold text-green-400 mb-2 font-mono">PortSwigger Academy</h3>
+                      <p className="text-green-200 text-sm">Académie en ligne spécialisée dans la sécurité web, avec des tutoriels et labs sur les vulnérabilités OWASP.</p>
                     </div>
                   </motion.div>
                 </div>
