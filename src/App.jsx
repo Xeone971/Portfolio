@@ -423,7 +423,7 @@ function App() {
                       </div>
                     </details>
                     {/* Menu déroulant Développement Web */}
-                    <details open className="mt-6">
+                    <details className="mt-6">
                       <summary className="text-2xl font-bold text-blue-400 font-mono mb-4 cursor-pointer select-none">Développement Web</summary>
                       <div className="grid md:grid-cols-2 gap-8 mt-2">
                         <div className="hologram p-6 rounded-lg">
