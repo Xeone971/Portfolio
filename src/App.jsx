@@ -1,3 +1,5 @@
+
+
   // Email obfusqué
   const emailParts = ["collas.lucca", "outlook.fr"];
   const getEmail = () => `${emailParts[0]}@${emailParts[1]}`;
@@ -12,6 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Toaster } from '@/components/ui/toaster';
 import { toast } from '@/components/ui/use-toast';
 
+ 
 function App() {
   const [currentSection, setCurrentSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -114,7 +117,22 @@ function App() {
     setCurrentSection('contact');
     setIsMenuOpen(false);
   };
-
+   // Redirection vers 'about' au scroll sur la page home
+  useEffect(() => {
+    if (currentSection !== 'home') return;
+    const handleScroll = (e) => {
+      if (window.scrollY > 5) {
+        setCurrentSection('about');
+        setIsMenuOpen(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [currentSection]);
+    // Remet le scroll en haut à chaque changement de section
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }, [currentSection]);
   return (
     <>
       <Helmet>
@@ -291,7 +309,8 @@ function App() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 1 }}
-                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+                    onClick={() => handleNavClick('about')}
                   >
                     <ChevronDown className="w-8 h-8 text-green-400 animate-bounce" />
                   </motion.div>
@@ -566,8 +585,8 @@ function App() {
                     className="mt-12 text-center"
                   >
                     <Button
-                      onClick={handleContactClick}
                       className="bg-green-400 hover:bg-green-500 text-black font-bold px-8 py-3 neon-glow transition-all duration-300"
+                      onClick={() => window.open('https://github.com/Xeone971', '_blank', 'noopener,noreferrer')}
                     >
                       <Github className="w-5 h-5 mr-2" />
                       Voir plus sur GitHub
