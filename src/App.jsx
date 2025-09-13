@@ -1,11 +1,11 @@
 
 
-  // Email obfusqué
-  const emailParts = ["collas.lucca", "outlook.fr"];
-  const getEmail = () => `${emailParts[0]}@${emailParts[1]}`;
-  const handleSecureEmailClick = () => {
-    window.location.href = `mailto:${getEmail()}`;
-  };
+// Email obfusqué
+const emailParts = ["collas.lucca", "outlook.fr"];
+const getEmail = () => `${emailParts[0]}@${emailParts[1]}`;
+const handleSecureEmailClick = () => {
+  window.location.href = `mailto:${getEmail()}`;
+};
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Toaster } from '@/components/ui/toaster';
 import { toast } from '@/components/ui/use-toast';
 
- 
+
 function App() {
   const [currentSection, setCurrentSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,12 +55,12 @@ function App() {
           const char = chars[Math.floor(Math.random() * chars.length)];
           const x = i * 20;
           const y = drops[i] * 20;
-          
+
           if (y > window.innerHeight && Math.random() > 0.975) {
             drops[i] = 0;
           }
           drops[i]++;
-          
+
           newChars[i] = { char, x, y, opacity: Math.random() };
         }
         return newChars.slice(0, 50);
@@ -117,7 +117,7 @@ function App() {
     setCurrentSection('contact');
     setIsMenuOpen(false);
   };
-   // Redirection vers 'about' au scroll sur la page home
+  // Redirection vers 'about' au scroll sur la page home
   useEffect(() => {
     if (currentSection !== 'home') return;
     const handleScroll = (e) => {
@@ -129,10 +129,10 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [currentSection]);
-    // Remet le scroll en haut à chaque changement de section
-    useEffect(() => {
-      window.scrollTo({ top: 0, behavior: 'auto' });
-    }, [currentSection]);
+  // Remet le scroll en haut à chaque changement de section
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, [currentSection]);
   return (
     <>
       <Helmet>
@@ -165,7 +165,7 @@ function App() {
         <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-green-400/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
-              <motion.div 
+              <motion.div
                 className="flex items-center space-x-2"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -184,11 +184,10 @@ function App() {
                       <button
                         key={section.id}
                         onClick={() => handleNavClick(section.id)}
-                        className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 flex items-center space-x-1 ${
-                          currentSection === section.id
-                            ? 'bg-green-400/20 text-green-400 neon-glow'
-                            : 'text-green-300 hover:bg-green-400/10 hover:text-green-400'
-                        }`}
+                        className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 flex items-center space-x-1 ${currentSection === section.id
+                          ? 'bg-green-400/20 text-green-400 neon-glow'
+                          : 'text-green-300 hover:bg-green-400/10 hover:text-green-400'
+                          }`}
                       >
                         <Icon className="w-4 h-4" />
                         <span>{section.label}</span>
@@ -226,11 +225,10 @@ function App() {
                       <button
                         key={section.id}
                         onClick={() => handleNavClick(section.id)}
-                        className={`w-full text-left px-3 py-2 rounded-md text-base font-medium transition-all duration-300 flex items-center space-x-2 ${
-                          currentSection === section.id
-                            ? 'bg-green-400/20 text-green-400'
-                            : 'text-green-300 hover:bg-green-400/10 hover:text-green-400'
-                        }`}
+                        className={`w-full text-left px-3 py-2 rounded-md text-base font-medium transition-all duration-300 flex items-center space-x-2 ${currentSection === section.id
+                          ? 'bg-green-400/20 text-green-400'
+                          : 'text-green-300 hover:bg-green-400/10 hover:text-green-400'
+                          }`}
                       >
                         <Icon className="w-5 h-5" />
                         <span>{section.label}</span>
@@ -284,10 +282,10 @@ function App() {
                     className="space-y-6"
                   >
                     <p className="text-lg md:text-xl text-green-200 max-w-2xl mx-auto leading-relaxed">
-                      Expert en cybersécurité spécialisé dans les tests de pénétration, 
+                      Expert en cybersécurité spécialisé dans les tests de pénétration,
                       l'analyse de vulnérabilités et la sécurité des systèmes critiques.
                     </p>
-                    
+
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                       <Button
                         onClick={() => handleNavClick('projects')}
@@ -349,24 +347,35 @@ function App() {
                           [PROFIL_UTILISATEUR]
                         </h3>
                         <p className="text-green-200 leading-relaxed mb-4">
-                          Passionné par la cybersécurité depuis plus de 8 ans, je me spécialise 
-                          dans l'identification et l'exploitation de vulnérabilités critiques. 
-                          Mon expertise couvre l'ensemble du spectre de la sécurité informatique.
+                          Persévérant et animé par le sens de la mission, je cultive depuis plus 
+                          de huit ans une passion profonde pour la cybersécurité, en particulier 
+                          dans l’identification et l’exploitation de vulnérabilités critiques. 
+                          Engagé dans une démarche de spécialisation, je me forme en continu via 
+                          des plateformes telles que Root-Me, TryHackMe ou Hack The Box, et je
+                          consolide mes compétences par des projets personnels et à la participation 
+                          de programmes collaboratifs dans le domaine.
+                           
                         </p>
                         <p className="text-green-200 leading-relaxed">
-                          J'ai participé à de nombreux programmes de bug bounty et aidé des 
-                          entreprises Fortune 500 à sécuriser leurs infrastructures critiques.
+                          Curieux, rigoureux et autonome, je suis également membre actif des cercles
+                          IHEDN, où mon implication au sein du comité cyber m’a permis d’enrichir
+                          ma vision stratégique des enjeux de sécurité numérique à travers des 
+                          échanges avec des experts civils et militaires. Mon esprit d’initiative,
+                          associé à une solide capacité d’analyse et de collaboration, me permet
+                          d’évoluer avec efficacité dans des environnements complexes et 
+                          exigeants, en apportant une réelle valeur ajoutée aux projets de 
+                          cybersécurité.
                         </p>
                       </div>
 
                       <div className="grid grid-cols-2 gap-4">
                         <div className="neon-border p-4 rounded bg-black/50">
                           <div className="text-green-400 font-mono text-sm">CERTIFICATIONS</div>
-                          <div className="text-green-200 text-xs mt-1">OSCP, CEH, CISSP</div>
+                          <div className="text-green-200 text-xs mt-1">Exp (OSCP, CEH, CISSP)</div>
                         </div>
                         <div className="neon-border p-4 rounded bg-black/50">
                           <div className="text-green-400 font-mono text-sm">EXPÉRIENCE</div>
-                          <div className="text-green-200 text-xs mt-1">8+ années</div>
+                          <div className="text-green-200 text-xs mt-1">1+ années</div>
                         </div>
                       </div>
                     </motion.div>
@@ -378,10 +387,10 @@ function App() {
                       className="relative"
                     >
                       <div className="circuit-pattern p-8 rounded-lg border border-green-400/30">
-                        <img  
+                        <img
                           className="w-full h-64 object-cover rounded-lg neon-border"
                           alt="Hacker working on multiple monitors in a dark room"
-                         src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe" />
+                          src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg"></div>
                       </div>
                     </motion.div>
@@ -494,7 +503,7 @@ function App() {
                         Création d'outils et scripts de sécurité personnalisés
                       </p>
                     </div>
-                    
+
                     <div className="neon-border p-6 rounded-lg bg-black/30 text-center"></div>
                     <div className="neon-border p-6 rounded-lg bg-black/30 text-center"></div>
                     <div className="neon-border p-6 rounded-lg bg-black/30 text-center"></div>
@@ -546,24 +555,23 @@ function App() {
                         onClick={handleContactClick}
                       >
                         <div className="flex items-center justify-between mb-4">
-                          <div className={`px-3 py-1 rounded-full text-xs font-mono ${
-                            project.status === 'Active' ? 'bg-green-400/20 text-green-400' :
+                          <div className={`px-3 py-1 rounded-full text-xs font-mono ${project.status === 'Active' ? 'bg-green-400/20 text-green-400' :
                             project.status === 'Completed' ? 'bg-blue-400/20 text-blue-400' :
-                            'bg-yellow-400/20 text-yellow-400'
-                          }`}>
+                              'bg-yellow-400/20 text-yellow-400'
+                            }`}>
                             {project.status}
                           </div>
                           <ExternalLink className="w-5 h-5 text-green-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                         </div>
-                        
+
                         <h3 className="text-xl font-bold text-green-400 mb-3 font-mono">
                           {project.title}
                         </h3>
-                        
+
                         <p className="text-green-200 text-sm mb-4 leading-relaxed">
                           {project.description}
                         </p>
-                        
+
                         <div className="flex flex-wrap gap-2">
                           {project.tech.map((tech) => (
                             <span
@@ -624,9 +632,9 @@ function App() {
                     <h3 className="text-2xl font-bold text-green-400 mb-6 font-mono">
                       [ÉTABLIR_CONNEXION]
                     </h3>
-                    
+
                     <p className="text-green-200 mb-8 leading-relaxed">
-                      Prêt à collaborer sur des projets de cybersécurité ou besoin d'une 
+                      Prêt à collaborer sur des projets de cybersécurité ou besoin d'une
                       expertise en sécurité ? Établissons une connexion sécurisée.
                     </p>
 
